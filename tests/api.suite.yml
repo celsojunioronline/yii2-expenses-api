@@ -1,0 +1,9 @@
+actor: ApiTester
+suite_namespace: \Api
+modules:
+    # enable helpers as array
+  enabled:
+    - Asserts
+    - REST:
+        url: http://nginx
+        depends: PhpBrowser

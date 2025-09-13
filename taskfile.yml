@@ -1,0 +1,50 @@
+version: '3'
+
+tasks:
+  install:
+    desc: "Instalar dependências, rodar migrations e preparar ambiente"
+    cmds:
+      - composer install
+      - php yii migrate --interactive=0
+      - bash scripts/ajusta_permissoes_projeto.sh
+      - |
+        echo ""
+        echo "✅ Instalação concluída com sucesso!"
+        echo ""
+        echo "🌐 Acesse a aplicação em:  http://localhost:8080"
+        echo "🗄️  Acesse o phpMyAdmin em: http://localhost:8081"
+        echo ""
+        echo "🔑 Credenciais iniciais:"
+        echo "   Usuário Admin: admin@teste.com"
+        echo "   Senha: admin123"
+        echo ""
+        echo "💾 Banco de dados disponível no host local em:"
+        echo "   Host: 127.0.0.1"
+        echo "   Porta: 8236"
+        echo "   Usuário: expenses_user"
+        echo "   Senha: expenses_pass"
+        echo ""
+        echo "➡️  Para rodar os testes automatizados:"
+        echo "   docker exec -it expenses_app task test"
+        echo ""
+
+  migrate:
+    desc: "Rodar migrations"
+    cmds:
+      - php yii migrate --interactive=0
+
+  reset-db:
+    desc: "Resetar banco (drop + migrate)"
+    cmds:
+      - php yii migrate/down --all --interactive=0
+      - php yii migrate --interactive=0
+      - |
+        echo ""
+        echo "✅ Banco recriado e migrations aplicadas."
+        echo "Você pode agora rodar novamente o 'task install' se precisar repopular dados."
+        echo ""
+
+  test:
+    desc: "Rodar testes automatizados (Codeception)"
+    cmds:
+      - vendor/bin/codecept run api
