@@ -27,12 +27,10 @@
 </p>
 
 <p align="center">
-  <a href="#✨-funcionalidades">Funcionalidades</a> •
-  <a href="#🧰-tecnologias">Tecnologias</a> •
-  <a href="#🚀-instalação-rápida">Instalação</a> •
-  <a href="#🔑-uso-da-api">Uso da API</a> •
-  <a href="#🧪-testes">Testes</a> •
-  <a href="#📄-licença">Licença</a>
+  <a href="/doc/API.md">🔑 API DOCUMENTAÇÃO</a> •
+  <a href="/doc/ARQUITETURA.md">🚀 ARQUITETURA</a> •
+  <a href="/doc/DEPLOY.md">✨ DEPLOY</a> •
+  <a href="/doc/TESTE.md">🧪 TESTE</a> •
 </p>
 
 ## 📖 Visão Geral
